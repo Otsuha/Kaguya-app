@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Image, StyleSheet} from 'react-native';
+import {Pressable, Image, StyleSheet, Dimensions} from 'react-native';
 
 export const KGYLibraryBook = () => {
   return (
@@ -13,11 +13,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    padding: 0,
+    backgroundColor: 'red',
+    padding: 30,
   },
   image: {
     margin: 0,
-    width: 110,
-    height: 140,
+    //width: (Dimensions.get('window').width - 40) / 2,
+    //height: ((Dimensions.get('window').width - 40) / 2) * 1.5,
+    width: 100,
+    height: 100,
+    //flexShrink: 0.9,
   },
 });

@@ -1,41 +1,48 @@
 import React from 'react';
-import {StyleSheet, View, VirtualizedList, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Dimensions,
+  FlatList,
+} from 'react-native';
 import {KGYLibraryBook} from './KGYLibraryBook';
+import {KGYBookStore} from '../KGYModels/KGYBookStore';
+
+const bookStore = new KGYBookStore();
 
 export const KGYLibraryPage = () => {
-  const getItemCount = data => {
-    return 5;
-  };
-
-  const getItem = (data, index) => {
-    return '';
-  };
-
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{width: 0, height: 0}} />
-      <VirtualizedList
-        style={{flex: 1, flexDirection: '', flexWrap: 'wrap'}}
-        //horizontal={true}
+    <SafeAreaView style={styles.mainContainer}>
+      <FlatList
+        data={[{title: '书名'}, {title: '书名2'}]}
         renderItem={item => {
-          return <View style={styles.item} />;
+          return (
+            <View style={styles.container}>
+              <KGYLibraryBook style={{backgroundColor: 'yellow'}} />
+              <KGYLibraryBook style={{backgroundColor: 'blue'}} />
+            </View>
+          );
         }}
-        initialNumToRender={5}
-        getItemCount={getItemCount}
-        getItem={getItem}
-        contentContainerStyle={}
       />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
   container: {
     flex: 1,
-    //flexDirection: 'row',
-    flexWrap: 'wrap',
-    padding: 10,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 40,
     backgroundColor: 'green',
+    justifyContent: 'flex-end',
   },
   item: {
     //paddingHorizontal: 8,
@@ -47,8 +54,7 @@ const styles = StyleSheet.create({
     //marginBottom: 6,
     //minWidth: "48%",
     //textAlign: "center",
-    width: 110,
-    height: 140,
-    margin: 10,
+    //height: 140,
+    //margin: 10,
   },
 });
