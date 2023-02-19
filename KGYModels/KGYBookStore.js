@@ -9,6 +9,7 @@ export class KGYBookStore {
       getRecentBook: computed,
       otherReadingBooks: computed,
       addBook: action,
+      getLibraryBooks: computed,
     });
   }
 
@@ -31,6 +32,21 @@ export class KGYBookStore {
     for (let i = 0; i < this.books.length; ++i) {
       if (i !== 0) {
         result.push(this.books[i]);
+      }
+    }
+    return result;
+  }
+
+  get getLibraryBooks() {
+    let result = [];
+    let cache = [];
+    for (let i = 0; i < this.books.length + 1; ++i) {
+      if (i % 2 == 0) {
+        cache.push(this.books[i]);
+      } else {
+        cache.push(this.books[i]);
+        result.push(cache);
+        cache = [];
       }
     }
     return result;
