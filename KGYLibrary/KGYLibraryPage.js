@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, SafeAreaView, FlatList, Pressable, Image, Text} from 'react-native';
+import {StyleSheet, View, SafeAreaView, FlatList} from 'react-native';
 import {KGYLibraryBook} from './KGYLibraryBook';
 import {KGYBookStore} from '../KGYModels/KGYBookStore';
 import {runInAction} from 'mobx';
@@ -90,6 +90,7 @@ export const KGYLibraryPage = observer(() => {
 
 const styles = StyleSheet.create({
   safeContainer: {
+    flex: 1,
     flexDirection: 'column',
     backgroundColor: 'white',
     paddingBottom: 20,
@@ -104,9 +105,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-  list: {
-    marginBottom: 50,
-  },
+  list: {},
   listMainContainer: {
     flex: 1,
     flexDirection: 'row',

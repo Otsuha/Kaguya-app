@@ -1,4 +1,5 @@
 import {action, computed, makeObservable, observable} from 'mobx';
+import FS from 'react-native-fs';
 
 export class KGYBookStore {
   books = [];
